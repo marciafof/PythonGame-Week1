@@ -6,6 +6,8 @@ import random
 import numpy as np
 from string import ascii_uppercase
 import matplotlib
+import time
+import matplotlib.image as mpimg
 
 
 def create_board(m=10,n=10):
@@ -169,7 +171,7 @@ def main():
     "submarine":4,
     "destroyer": 5}
     #Maximum number of guesses
-    number_guess = 10
+    number_guess = 60
     plt.ion()
     ships_pos_dic, list_final_pos = position_ships(ships_code,ships_size)
     already_guessed=[]
@@ -205,8 +207,12 @@ def main():
         img = visu_board(already_guessed, list_hits, m, n)
         plt.show()
         if number_guess ==0:
+            #from PIL import Image
             flag = False
             print("YOU LOSE\nGAME OVER")
+            # with Image.open("loser.png") as loser_img:
+            #     loser_img.show()
+            time.sleep(30)
 #%%
 if __name__ == "__main__":
     main()
