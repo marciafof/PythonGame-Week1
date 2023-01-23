@@ -175,11 +175,14 @@ def main():
     #Maximum number of guesses
     number_guess = 60
     plt.ion()
+    print("Welcome to Battleship\n We are preparing the board. Please wait...")
+    print(f"You will have {number_guess} of guesses to sink all ships")
     ships_pos_dic, list_final_pos = position_ships(ships_code,ships_size)
     already_guessed=[]
     list_hits = []
     shipsunk = 0
     flag = True
+    
 
     while flag: #number_guess>0:
         flagcase= True
