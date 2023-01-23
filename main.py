@@ -31,13 +31,14 @@ def position_ships(ships_code,ships_size, m=10,n=10):
             #print(f"first poistion of ship x{positionx}, y{positiony} and lays {angleship}")
             if angleship == "v":
                 if (positiony + isize) >=m :
-                    print("try another starting position")
+                    flagOkposition = True
+                    #print("try another starting position")
                 else:
                     #print(positiony + isize)
                     overlapflag= False
                     for ishipy in range(positiony,positiony+isize):
                         if pc_board[ishipy,positionx] > 0:
-                            print("Overlapping of ships. Trying another position")
+                            #print("Overlapping of ships. Trying another position")
                             overlapflag = True
                     if overlapflag:
                         flagOkposition = True
@@ -49,12 +50,13 @@ def position_ships(ships_code,ships_size, m=10,n=10):
                         flagOkposition = False
             else:
                 if (positionx + isize) >=n or positiony >=m:
-                    print("try another starting position")
+                    flagOkposition = True
+                    #print("try another starting position")
                 else:
                     overlapflag= False
                     for ishipx in range(positionx,positionx+isize):
                         if pc_board[positiony,ishipx] > 0:
-                            print("Overlapping of ships. Trying another position")
+                            #print("Overlapping of ships. Trying another position")
                             overlapflag = True
                     if overlapflag:
                         flagOkposition = True
@@ -66,7 +68,7 @@ def position_ships(ships_code,ships_size, m=10,n=10):
                             list_ship_pos.append(ascii_uppercase[positiony+1]+str(ipos+1))
                         flagOkposition = False
     #print(pc_board)
-    print(ships_pos_dic)
+    #print(ships_pos_dic)
     list_final_pos = []
     for positionlist in ships_pos_dic.values():
         list_final_pos.extend(positionlist)
